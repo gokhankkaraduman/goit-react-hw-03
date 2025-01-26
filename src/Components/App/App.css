@@ -1,0 +1,26 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+}
+.app{
+  margin: 40px auto;
+  max-width: 1400px;
+  padding:20px;
+/* Arka plan ve sınır */
+  background: linear-gradient(135deg, #ffffff, #dbe4f0);
+  /* Yumuşak gradient arka plan */
+  border-radius: 12px;
+  /* Yuvarlak köşeler */
+  border: 2px solid #dbe4f0;
+  /* Hafif sınır */
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.4), 0px 5px 15px rgba(0, 0, 0, 0.4);
+  /* Derinlik ekler */
+  display:flex;
+  gap:30px;
+}
+.wrapper{
+  display:flex;
+  flex-direction: column;
+}

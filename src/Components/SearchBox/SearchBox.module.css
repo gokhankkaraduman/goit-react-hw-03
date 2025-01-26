@@ -1,0 +1,73 @@
+.wrapper{
+    margin: 20px auto;
+}
+/* Input Field Stil */
+.field {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    background-color: transparent;
+    border: 2px solid #d1d8e0;
+    /* Açık gri border */
+    border-radius: 8px;
+    color: #333;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Input Field Hover ve Focus Efekti */
+.field:hover,
+.field:focus {
+    border: 2px solid #3498db;
+    /* Mavi border */
+    background: linear-gradient(135deg, #f4f7fb, #e0e5ec);
+    /* Pastel mavi ve gri geçiş */
+    color: #333;
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.4);
+    /* Hafif mavi gölge */
+}
+
+/* Placeholder Stil */
+.field::placeholder {
+    color: #a6a6a6;
+    /* Hafif gri placeholder yazı rengi */
+}
+
+.label {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: #4a4a4a;
+    /* Koyu gri renk */
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    /* Baş harfleri büyük yaparak daha dikkat çekici */
+    letter-spacing: 1px;
+    /* Harfler arasında hafif boşluk */
+    transition: all 0.3s ease;
+    /* Geçiş animasyonu */
+}
+
+.label:hover,
+.label:focus {
+    color: #5a73d3;
+    /* Mavi tonlarında renk değişimi */
+    cursor: pointer;
+    /* Tıklanabilir olduğu izlenimi verir */
+}
+
+/* Label ve Input ilişkisini güçlendiren stil */
+.label+input {
+    margin-top: 5px;
+}
+
+/* Animasyonlu Hover Efekti */
+.label:hover {
+    transform: scale(1.05);
+    /* Hoverda etiketin biraz büyümesi */
+    color: #2b75d7;
+    /* Daha koyu bir mavi */
+}
+.icon{
+    margin-right: 10px;
+}

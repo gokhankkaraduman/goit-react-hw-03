@@ -1,0 +1,20 @@
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    /* Hem satır hem sütun boşluklarını belirler */
+    /* Öğeler arasındaki boşlukları eşit dağıtır */
+    margin: 0 auto;
+    padding: 0;
+    /* Ek boşluk olmaması için */
+    width: 100%;
+    /* Kapsayıcının tam genişlikte olmasını sağlar */
+    box-sizing: border-box;
+    /* Kenar boşluklarını hesaba katar */
+}
+
+.item {
+    width: ((100% - 20px)/3);
+    /* Taşmayı önlemek için */
+    box-sizing: border-box;
+}
