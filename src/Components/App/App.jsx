@@ -1,9 +1,9 @@
 import { useState } from 'react';
-//Style
+// Style
 import './App.css';
-//Data
+// Data
 import contactsData from '../../data/contacts.json';
-//Components
+// Components
 import ContactForm from '../ContactForm/ContactForm.jsx';
 import ContactList from '../ContactList/ContactList.jsx';
 import SearchBox from '../SearchBox/SearchBox.jsx';
@@ -12,10 +12,10 @@ import IsDuplicate from '../isDuplicate/IsDuplicate.jsx';
 
 function App() {
   // Variables
-  const savedContacts = JSON.parse(window.localStorage.getItem("Contacts")) || []; // Burada null kontrolü yapılıyor
+  const savedContacts = JSON.parse(window.localStorage.getItem('Contacts'));
 
   // State
-  const [contacts, setContacts] = useState(() => savedContacts.length !== 0 ? savedContacts : contactsData);
+  const [contacts, setContacts] = useState(() => (savedContacts.length !== 0 ? savedContacts : contactsData));
   const [error, setError] = useState(false);
   const [duplicate, setDuplicate] = useState(false);
 
@@ -29,7 +29,7 @@ function App() {
     );
 
     if (isDuplicate) {
-      setDuplicate(true); // Hata mesajını aktif et
+      setDuplicate(true); // Duplicate hata mesajını aktif et
       return; // Kişiyi eklemeyi durdur
     }
 
@@ -39,7 +39,7 @@ function App() {
         ...prevContacts,
         { id: contact.id, name: contact.username, number: contact.phone },
       ];
-      window.localStorage.setItem("Contacts", JSON.stringify(updatedContacts));
+      window.localStorage.setItem('Contacts', JSON.stringify(updatedContacts));
       return updatedContacts;
     });
   };
@@ -48,24 +48,21 @@ function App() {
     setContacts((prevContacts) => {
       const updatedContacts = prevContacts.filter((contact) => contact.id !== id);
       // Güncellenmiş listeyi localStorage'e yeniden yaz
-      window.localStorage.setItem("Contacts", JSON.stringify(updatedContacts));
+      window.localStorage.setItem('Contacts', JSON.stringify(updatedContacts));
       return updatedContacts;
     });
   };
 
   const handleClick = () => {
     setError(false);
-  };
-
-  const IsDuplicate = () => {
-    setDuplicate(false);
+    setDuplicate(false); // duplicate hatasını sıfırlayalım
   };
 
   const handleSearch = (searchValue) => {
-    console.log("Search Value:", searchValue);
+    console.log('Search Value:', searchValue);
 
     // Boş bir input kontrolü
-    if (searchValue.trim() === "") {
+    if (searchValue.trim() === '') {
       if (savedContacts && savedContacts.length > 0) {
         setContacts(savedContacts); // Orijinal veriyi geri yükle
       } else {
@@ -102,9 +99,9 @@ function App() {
           <ContactForm onSubmit={addContact} />
         </div>
       </div>
-      {error ? (
-        <ErrorModal handleClick={handleClick} />
-      ) : (
+      {error && <ErrorModal handleClick={handleClick} />}
+      {duplicate && <IsDuplicate closeModal={handleClick} />}
+      {!error && !duplicate && (
         <div className="list">
           <ContactList contacts={contacts} onDelete={handleDelete} />
         </div>
