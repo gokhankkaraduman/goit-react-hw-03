@@ -2,19 +2,29 @@
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    /* Hem satır hem sütun boşluklarını belirler */
-    /* Öğeler arasındaki boşlukları eşit dağıtır */
     margin: 0 auto;
     padding: 0;
-    /* Ek boşluk olmaması için */
     width: 100%;
-    /* Kapsayıcının tam genişlikte olmasını sağlar */
     box-sizing: border-box;
-    /* Kenar boşluklarını hesaba katar */
 }
 
 .item {
-    width: ((100% - 20px)/3);
-    /* Taşmayı önlemek için */
+    width: calc((100% - 20px) / 3);
+    /* 3 kolon için genişlik hesaplanıyor */
     box-sizing: border-box;
+}
+
+/* Responsiveness için media queries */
+@media (max-width: 1024px) {
+    .item {
+        width: calc((100% - 20px) / 2);
+        /* Tablet ekranlarda 2 kolon */
+    }
+}
+
+@media (max-width: 768px) {
+    .item {
+        width: 100%;
+        /* Mobil ekranlarda 1 kolon */
+    }
 }

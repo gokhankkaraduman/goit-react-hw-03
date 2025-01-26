@@ -17,7 +17,9 @@
         .required('Name is required')
         .min(3, 'Name must be at least 3 characters long')
         .max(20, 'Name must be less than 20 characters'),
-    phone: Yup.number().required("Number is required"),
+    phone: Yup.string()
+    .required('Phone number is required')
+    .matches(/^[0-9]{10}$/, 'Phone number must be 10 digits')
         
     });
 
@@ -40,7 +42,7 @@
         onSubmit={handleSubmit}
         >
         
-        <Form className={css.from}>
+        <Form className={css.form}>
             <div className={css.fieldcontainer}>
             <h2 className={css.title}><span><FaUserPlus className={css.icon} /></span>Add Contact</h2>
             <label htmlFor={usernameId} className={css.label}><span classame={css.fieldicon}><FaPhoneAlt /></span> Name</label>
@@ -57,7 +59,7 @@
             </div>
 
             <div className={css.fieldcontainer}>
-            <label htmlFor={numberId} className={css.label}><span classame={css.fieldicon}><FaUser /></span> "Phone Number</label>
+            <label htmlFor={numberId} className={css.label}><span className={css.fieldicon}><FaUser /></span> Phone Number</label>
             <Field
                 type="text"
                 id={numberId}
@@ -71,7 +73,7 @@
 
             <button type="submit" className={css.button}>Add Contact <FaPlusCircle className={css.icon} /></button>
         </Form>
-        </Formik>
+    </Formik>
     );
     }
 

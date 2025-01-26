@@ -4,18 +4,14 @@
     margin: 50px auto;
     padding: 30px;
     background-color: #ffffff;
-    /* Beyaz arka plan */
     border-radius: 12px;
     background: linear-gradient(135deg, #e0e5ec, #f4f7fb);
-    /* Hafif gri ve pastel mavi gradient */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    /* Yumuşak gölge */
     display: flex;
     flex-direction: column;
     gap: 25px;
     z-index: 1;
-    position: absolute;
-    /* Koyu gri metin */
+    position: relative;
 }
 
 .text {
@@ -24,7 +20,6 @@
     font-size: 25px;
     font-weight: bold;
     margin-bottom: 5px;
-
 }
 
 .animation {
@@ -32,54 +27,48 @@
     height: 340px;
 }
 
-.btn {
-    position: relative;
-    top: 5px;
-    left: 660px;
-    transform: translate(-50%, -50%);
+/* Küçültülmüş buton boyutu */
+.wrapper .btn {
+    position: absolute;
+    top: 10px;
+    /* Üstten 10px mesafe */
+    right: 10px;
+    /* Sağdan 10px mesafe */
     display: flex;
-    justify-items: center;
-    align-items: center;
-    align-content: center;
     justify-content: center;
+    align-items: center;
     background: linear-gradient(135deg, #f36f6f, #f45050);
-    /* Güzel kırmızı tonları */
     color: white;
     border: none;
     border-radius: 50px;
-    /* Yuvarlak köşeler */
-    padding: 6px 12px;
+    padding: 4px 8px;
+    /* Küçültülmüş buton boyutu */
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    /* Yumuşak geçişler */
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-    /* Derinlik ekler */
+    z-index: 2;
+    /* Buton diğer içeriklerin önünde yer alacak */
+    font-size: 14px;
+    /* Font boyutunu da küçültüyoruz */
 }
 
 .btn:hover {
     background: linear-gradient(135deg, #f45050, #f36f6f);
-    /* Hoverda renk değişimi */
-    /* Hoverda buton hafif yukarı kayar */
     box-shadow: 0 12px 18px rgba(0, 0, 0, 0.3);
-    /* Gölgeleme arttırılır */
 }
 
 .btn:active {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    /* Tıklama esnasında gölge azalır */
 }
 
 .btn .exiticon {
     font-size: 15px;
-    /* Metin ile ikon arasına boşluk */
     font-weight: bold;
     animation: bounce 0.3s infinite alternate;
-    /* İkon için animasyon */
 }
 
 .btn:hover .exiticon {
     animation: bounce 0.2s infinite alternate;
-    /* Hoverda animasyonu hızlandır */
 }
 
 @keyframes bounce {
@@ -89,7 +78,6 @@
 
     50% {
         transform: translateY(-6px);
-        /* İkon yukarıya zıplar */
     }
 
     100% {
@@ -103,5 +91,83 @@
 
 .btn:focus-visible {
     box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.7);
-    /* Odaklanıldığında ışıklı kenarlık */
+}
+
+/* Responsive Tasarım */
+@media (max-width: 1024px) {
+    .wrapper {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .text {
+        font-size: 22px;
+    }
+
+    .animation {
+        width: 250px;
+        height: 280px;
+    }
+
+    .btn {
+        width: 80px;
+        padding: 6px 12px;
+        /* Butonun boyutu orantılı olarak küçüldü */
+        top: 20px;
+        right: 20px;
+        font-size: 12px;
+        /* Font boyutunu da küçülttük */
+    }
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        width: 95%;
+        padding: 15px;
+        margin: 20px auto;
+    }
+
+    .text {
+        font-size: 20px;
+    }
+
+    .animation {
+        width: 200px;
+        height: 220px;
+    }
+
+    .btn {
+        width: 80px;
+        padding: 3px 6px;
+        /* Orantılı olarak küçültüldü */
+        top: 15px;
+        right: 15px;
+        font-size: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .wrapper {
+        width: 100%;
+        padding: 10px;
+        margin: 10px auto;
+    }
+
+    .text {
+        font-size: 18px;
+    }
+
+    .animation {
+        width: 180px;
+        height: 200px;
+    }
+
+    .btn {
+        width: 40px;
+        padding: 6px 10px;
+        top: 10px;
+        right: 10px;
+        font-size: 10px;
+        /* Küçük ekranlarda font boyutu da küçültüldü */
+    }
 }

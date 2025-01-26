@@ -1,6 +1,7 @@
-.wrapper{
+.wrapper {
     margin: 20px auto;
 }
+
 /* Input Field Stil */
 .field {
     width: 100%;
@@ -8,7 +9,6 @@
     font-size: 16px;
     background-color: transparent;
     border: 2px solid #d1d8e0;
-    /* Açık gri border */
     border-radius: 8px;
     color: #333;
     outline: none;
@@ -19,44 +19,34 @@
 .field:hover,
 .field:focus {
     border: 2px solid #3498db;
-    /* Mavi border */
     background: linear-gradient(135deg, #f4f7fb, #e0e5ec);
-    /* Pastel mavi ve gri geçiş */
     color: #333;
     box-shadow: 0 0 10px rgba(52, 152, 219, 0.4);
-    /* Hafif mavi gölge */
 }
 
 /* Placeholder Stil */
 .field::placeholder {
     color: #a6a6a6;
-    /* Hafif gri placeholder yazı rengi */
 }
 
+/* Label Stil */
 .label {
     display: block;
     font-size: 16px;
     font-weight: 600;
     color: #4a4a4a;
-    /* Koyu gri renk */
     margin-bottom: 8px;
     text-transform: uppercase;
-    /* Baş harfleri büyük yaparak daha dikkat çekici */
     letter-spacing: 1px;
-    /* Harfler arasında hafif boşluk */
     transition: all 0.3s ease;
-    /* Geçiş animasyonu */
 }
 
 .label:hover,
 .label:focus {
     color: #5a73d3;
-    /* Mavi tonlarında renk değişimi */
     cursor: pointer;
-    /* Tıklanabilir olduğu izlenimi verir */
 }
 
-/* Label ve Input ilişkisini güçlendiren stil */
 .label+input {
     margin-top: 5px;
 }
@@ -64,10 +54,64 @@
 /* Animasyonlu Hover Efekti */
 .label:hover {
     transform: scale(1.05);
-    /* Hoverda etiketin biraz büyümesi */
     color: #2b75d7;
-    /* Daha koyu bir mavi */
 }
-.icon{
+
+.icon {
     margin-right: 10px;
+}
+@media (max-width: 1024px) {
+    .field{
+        width: 40%;
+    }
+}
+
+/* Responsivlik İçin Medya Sorgusu */
+@media (max-width: 768px) {
+    .field {
+        width: 60%;
+        font-size: 14px;
+        /* Küçük ekranlarda daha küçük yazı */
+        padding: 12px;
+        /* Alanı biraz daraltarak uyumlu hale getir */
+    }
+
+    .label {
+        font-size: 14px;
+        /* Etiket yazı boyutunu biraz küçült */
+    }
+
+    .wrapper {
+        margin: 15px auto;
+        /* Küçük ekranlarda daha yakın alan */
+    }
+
+    .icon {
+        margin-right: 8px;
+        /* Küçük ekranlarda ikonu biraz daha küçült */
+    }
+}
+
+@media (max-width: 480px) {
+    .field {
+        font-size: 12px;
+        /* Daha küçük ekranlarda yazıyı iyice küçült */
+        padding: 10px;
+        /* Alanı iyice daralt */
+    }
+
+    .label {
+        font-size: 12px;
+        /* Etiketi daha da küçült */
+    }
+
+    .wrapper {
+        margin: 10px auto;
+        /* Daha dar alan */
+    }
+
+    .icon {
+        margin-right: 6px;
+        /* Daha da küçük ikon mesafesi */
+    }
 }

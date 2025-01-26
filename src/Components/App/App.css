@@ -4,23 +4,162 @@
   padding: 1rem;
   text-align: center;
 }
-.app{
+
+.app {
   margin: 40px auto;
   max-width: 1400px;
-  padding:20px;
-/* Arka plan ve sınır */
+  padding: 20px;
   background: linear-gradient(135deg, #ffffff, #dbe4f0);
-  /* Yumuşak gradient arka plan */
   border-radius: 12px;
-  /* Yuvarlak köşeler */
   border: 2px solid #dbe4f0;
-  /* Hafif sınır */
   box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.4), 0px 5px 15px rgba(0, 0, 0, 0.4);
-  /* Derinlik ekler */
-  display:flex;
-  gap:30px;
+  display: flex;
+  flex-direction: row;
+  /* Componentlerin yan yana dizilmesini sağlıyoruz */
+  flex-wrap: wrap;
+  /* Ekran küçüldükçe satırlara kayabilmesi için */
+  justify-content: space-between;
 }
-.wrapper{
-  display:flex;
+
+.title-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-wrapper h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  text-align: center;
+  margin: 0;
+  padding: 30px 0;
+  color: #2c3e50;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  background: linear-gradient(135deg, #3498db, #9b59b6);
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, color 0.3s ease;
+  margin-bottom: 10px;
+  position: relative;
+  /* Mutlaka bir relative position olmalı */
+}
+
+h1:hover {
+  transform: scale(1.1);
+  color: #fff;
+  text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+h1::after {
+  content: '';
+  display: block;
+  position: relative;
+  bottom: -50px;
+  width: 1000px;
+  /* Ekran boyutuna göre otomatik genişlesin */
+  height: 2px;
+  background: linear-gradient(135deg, #3498db, #9b59b6);
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.app-wrapper {
+  margin-top: 30px;
+  display: flex;
+
+  gap: 20px;
+  /* Ekran küçüldükçe satırlara kayabilmesi için */
+}
+
+.animation {
+  position: relative;
+  left:300px;
+  width: 150px;
+  height: 150px;
+}
+
+.wrapper {
+  display: flex;
   flex-direction: column;
+}
+
+.search,
+.contact {
+  margin-bottom: 20px;
+}
+
+.search,
+.contact {
+  width: 100%;
+  /* Ekranda genişlik sorunlarını engeller */
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .app {
+    flex-direction: column;
+    /* Ekran küçüldükçe column düzenine geçilsin */
+  }
+
+  .app-wrapper {
+    flex-direction: column;
+    /* Bileşenlerin dikey sıralanması sağlanır */
+    gap: 10px;
+    /* Aralıklı yerleşim */
+  }
+h1::after{
+  width: 800px;
+}
+  .animation {
+    left:100px;
+    width: 100px;
+    height: 100px;
+    /* Küçük ekranlarda animasyon küçülsün */
+  }
+}
+
+@media (max-width: 768px) {
+  .app {
+    padding: 15px;
+    margin: 20px auto;
+  }
+
+  .search,
+  .contact {
+    margin-bottom: 15px;
+  }
+    h1::after{
+      width: 600px;
+    }
+}
+
+@media (max-width: 480px) {
+  .app {
+    padding: 10px;
+    gap: 15px;
+  }
+
+  .search,
+  .contact {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+.title-wrapper h1{
+  font-size: 24px;
+}
+.title-wrapper{
+  display:block;
+}
+    .animation {
+      left: 5px;
+      width: 90px;
+      height: 90px;
+      /* Küçük ekranlarda animasyon küçülsün */
+    }
+    h1::after {
+      width: 200px;
+    }
 }
